@@ -9,8 +9,9 @@ namespace LiveVehicleActor.Interfaces
 {
     public interface ILiveVehicleActor : IActor
     {
-        Task<int> GetCountAsync();
+        [Readonly]
+        Task<int> GetVehicleIdAsync();
 
-        Task SetCountAsync(int count);
+        Task SetVehicleIdAsync(int count);
     }
 }

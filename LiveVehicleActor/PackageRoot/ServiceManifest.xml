@@ -1,8 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ServiceManifest Name="LiveVehicleActorPkg"
-                 Version="1.0.0.0"
-                 xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <!-- The content will be generated during build -->
+<ServiceManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="LiveVehicleActorPkg" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <ServiceTypes>
+      <StatefulServiceType ServiceTypeName="LiveVehicleActorServiceType" HasPersistedState="true">
+         <Extensions>
+            <Extension Name="__GeneratedServiceType__">
+               <GeneratedNames xmlns="http://schemas.microsoft.com/2015/03/fabact-no-schema">
+                  <DefaultService Name="LiveVehicleActorService" />
+                  <ServiceEndpoint Name="LiveVehicleActorServiceEndpoint" />
+                  <ReplicatorEndpoint Name="LiveVehicleActorServiceReplicatorEndpoint" />
+                  <ReplicatorConfigSection Name="LiveVehicleActorServiceReplicatorConfig" />
+                  <ReplicatorSecurityConfigSection Name="LiveVehicleActorServiceReplicatorSecurityConfig" />
+                  <StoreConfigSection Name="LiveVehicleActorServiceLocalStoreConfig" />
+               </GeneratedNames>
+            </Extension>
+         </Extensions>
+      </StatefulServiceType>
+   </ServiceTypes>
+   <CodePackage Name="Code" Version="1.0.0.0">
+      <EntryPoint>
+         <ExeHost>
+            <Program>LiveVehicleActor.exe</Program>
+         </ExeHost>
+      </EntryPoint>
+   </CodePackage>
+   <ConfigPackage Name="Config" Version="1.0.0.0" />
+   <Resources>
+      <Endpoints>
+         <Endpoint Name="LiveVehicleActorServiceEndpoint" />
+         <Endpoint Name="LiveVehicleActorServiceReplicatorEndpoint" />
+      </Endpoints>
+   </Resources>
 </ServiceManifest>

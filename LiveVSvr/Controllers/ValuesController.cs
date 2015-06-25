@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 
-using LiveVStateful.Interfaces;
+using LiveVehicleActor.Interfaces;
 using Microsoft.ServiceFabric.Actors;
 
 
@@ -19,15 +19,15 @@ namespace LiveVSvr.Controllers
         {
             ActorId myActorId = ActorId.NewId();
 
-            var vehicleProxy = ActorProxy.Create<ILiveVStateful>(ActorId.NewId(), "fabric:/LiveVStatefulApp");
+            var vehicleProxy = ActorProxy.Create<ILiveVehicleActor>(ActorId.NewId(), "fabric:/LiveVStatefulApp");
 
-            int count = 25;
-            //Output TBD --> ("Setting Count to in Actor {0}: {1}", vehicleProxy.GetActorId(), count);
-            vehicleProxy.SetCountAsync(count).Wait();
+            int vehicleId = 25;
+            //Output TBD --> ("Setting vehicleId {0} to Actor {1}", vehicleId, vehicleProxy.GetActorId() );
+            vehicleProxy.SetVehicleIdAsync(vehicleId).Wait();
 
-            string resultDone = "Count from Actor " + vehicleProxy.GetActorId().ToString() + " - " + vehicleProxy.GetCountAsync().Result.ToString();
+            string resultDone = "Actor " + vehicleProxy.GetActorId().ToString() + " is External-VehicleID: " + vehicleProxy.GetVehicleIdAsync().Result.ToString();
 
-            return new string[] { "Vehicles Coordinates", "Super Cool!!!!!!!!", resultDone };
+            return new string[] { "TEST: ", resultDone };
 
         }
 
@@ -35,7 +35,12 @@ namespace LiveVSvr.Controllers
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            return "value";
+            ActorId actorId = new ActorId(id);
+
+            var vehicleProxy = ActorProxy.Create<ILiveVehicleActor>(actorId, "fabric:/LiveVStatefulApp");
+
+            string resultDone = "Actor " + vehicleProxy.GetActorId().ToString() + " is External-VehicleID: " + vehicleProxy.GetVehicleIdAsync().Result.ToString();
+            return "Vehicle's Data: " + resultDone;
         }
 
         // POST api/values

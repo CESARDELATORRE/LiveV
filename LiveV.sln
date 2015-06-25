@@ -7,7 +7,7 @@ Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "LiveV", "LiveV\LiveV.sfproj
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LiveVSvr", "LiveVSvr\LiveVSvr.xproj", "{0854978D-34E7-405D-990D-CCFB4B4B0417}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveVStateful.Interfaces", "LiveVStateful.Interfaces\LiveVStateful.Interfaces.csproj", "{0943240F-0A5E-4FA4-8C63-67FFCFFCED8C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveVehicleActor.Interfaces", "LiveVehicleActor.Interfaces\LiveVehicleActor.Interfaces.csproj", "{C3C64875-368F-4066-A4A8-DCAC0B49E865}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,12 +33,12 @@ Global
 		{0854978D-34E7-405D-990D-CCFB4B4B0417}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0854978D-34E7-405D-990D-CCFB4B4B0417}.Release|x64.ActiveCfg = Release|Any CPU
 		{0854978D-34E7-405D-990D-CCFB4B4B0417}.Release|x64.Build.0 = Release|Any CPU
-		{0943240F-0A5E-4FA4-8C63-67FFCFFCED8C}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{0943240F-0A5E-4FA4-8C63-67FFCFFCED8C}.Debug|x64.ActiveCfg = Debug|x64
-		{0943240F-0A5E-4FA4-8C63-67FFCFFCED8C}.Debug|x64.Build.0 = Debug|x64
-		{0943240F-0A5E-4FA4-8C63-67FFCFFCED8C}.Release|Any CPU.ActiveCfg = Release|x64
-		{0943240F-0A5E-4FA4-8C63-67FFCFFCED8C}.Release|x64.ActiveCfg = Release|x64
-		{0943240F-0A5E-4FA4-8C63-67FFCFFCED8C}.Release|x64.Build.0 = Release|x64
+		{C3C64875-368F-4066-A4A8-DCAC0B49E865}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{C3C64875-368F-4066-A4A8-DCAC0B49E865}.Debug|x64.ActiveCfg = Debug|x64
+		{C3C64875-368F-4066-A4A8-DCAC0B49E865}.Debug|x64.Build.0 = Debug|x64
+		{C3C64875-368F-4066-A4A8-DCAC0B49E865}.Release|Any CPU.ActiveCfg = Release|x64
+		{C3C64875-368F-4066-A4A8-DCAC0B49E865}.Release|x64.ActiveCfg = Release|x64
+		{C3C64875-368F-4066-A4A8-DCAC0B49E865}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

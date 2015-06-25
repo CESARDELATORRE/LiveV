@@ -24,7 +24,7 @@
     <ProduceOutputsOnBuild>True</ProduceOutputsOnBuild>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LiveVStateful.Interfaces\LiveVStateful.Interfaces.csproj" />
+    <ProjectReference Include="..\LiveVehicleActor.Interfaces\LiveVehicleActor.Interfaces.csproj" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>

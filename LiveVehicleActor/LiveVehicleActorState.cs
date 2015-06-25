@@ -13,13 +13,19 @@ namespace LiveVehicleActor
 {
     [DataContract]
     public class LiveVehicleActorState
-    {
+    {        
         [DataMember]
-        public int Count;
+        public int VehicleId { get; set; }
+        [DataMember]
+        public double Latitude { get; set; }
+        [DataMember]
+        public double Longitude { get; set; }
 
         public override string ToString()
         {
-            return string.Format(CultureInfo.InvariantCulture, "LiveVehicleActorState[Count = {0}]", Count);
+            return string.Format(CultureInfo.InvariantCulture, 
+                                 "LiveVehicleActorState[VehicleId = {0}, Latitude = {1}, Longitude = {2}]", 
+                                                                 VehicleId, Latitude, Longitude);
         }
     }
 }

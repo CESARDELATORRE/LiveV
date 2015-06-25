@@ -14,7 +14,7 @@
       "Microsoft.ServiceFabric.Actors >= 1.0.324-preview1",
       "Microsoft.ServiceFabric.Data >= 1.0.324-preview1",
       "Microsoft.ServiceFabric.Services >= 1.0.324-preview1",
-      "LiveVStateful.Interfaces >= 1.0.0-*",
+      "LiveVehicleActor.Interfaces >= 1.0.0-*",
       "framework/System.Runtime.Serialization >= 4.0.0.0",
       "framework/System.ServiceModel >= 4.0.0.0"
     ]

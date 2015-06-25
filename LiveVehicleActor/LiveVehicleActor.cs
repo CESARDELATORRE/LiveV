@@ -15,23 +15,23 @@ namespace LiveVehicleActor
         {
             if (this.State == null)
             {
-                this.State = new LiveVehicleActorState() { Count = 0 };
+                this.State = new LiveVehicleActorState() {  VehicleId = 0, Latitude = 0, Longitude = 0 };
             }
 
             ActorEventSource.Current.ActorMessage(this, "State initialized to {0}", this.State);
             return Task.FromResult(true);
         }
 
-        public Task<int> GetCountAsync()
+        public Task<int> GetVehicleIdAsync()
         {
-            ActorEventSource.Current.ActorMessage(this, "Getting current count value as {0}", this.State.Count);
-            return Task.FromResult(this.State.Count);
+            ActorEventSource.Current.ActorMessage(this, "Getting current VehicleId as {0}", this.State.VehicleId);
+            return Task.FromResult(this.State.VehicleId);
         }
 
-        public Task SetCountAsync(int count)
+        public Task SetVehicleIdAsync(int vehicleId)
         {
-            ActorEventSource.Current.ActorMessage(this, "Setting current count of value to {0}", count);
-            this.State.Count = count;
+            ActorEventSource.Current.ActorMessage(this, "Setting current VehicleId to {0}", vehicleId);
+            this.State.VehicleId = vehicleId;
 
             return Task.FromResult(true);
         }
