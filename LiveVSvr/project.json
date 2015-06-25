@@ -1,0 +1,48 @@
+{
+    "webroot": "wwwroot",
+    "version": "1.0.0-*",
+
+    "dependencies": {
+        "Microsoft.AspNet.Mvc": "6.0.0-beta4",
+        "Microsoft.AspNet.Server.IIS": "1.0.0-beta4",
+        "Microsoft.AspNet.Server.WebListener": "1.0.0-beta4",
+        "Microsoft.AspNet.StaticFiles": "1.0.0-beta4"
+
+    },
+
+    "commands": {
+        "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5000"
+    },
+
+    "frameworks": {
+        "dnx451": {
+            "dependencies": {
+                "Microsoft.ServiceFabric.AspNet.Hosting": "1.0.0-beta4",
+                "Microsoft.ServiceFabric": "4.0.1406-preview1",
+                "Microsoft.ServiceFabric.Actors": "1.0.324-preview1",
+                "Microsoft.ServiceFabric.Data": "1.0.324-preview1",
+                "Microsoft.ServiceFabric.Services": "1.0.324-preview1",
+                "LiveVStateful.Interfaces": "1.0.0-*"
+            },
+            "frameworkAssemblies": {
+                "System.Runtime.Serialization": "4.0.0.0",
+                "System.ServiceModel": "4.0.0.0"
+            }
+        }
+    },
+
+    "exclude": [
+        "wwwroot",
+        "node_modules",
+        "bower_components",
+        "PackageRoot"
+    ],
+    "publishExclude": [
+        "node_modules",
+        "bower_components",
+        "**.xproj",
+        "**.user",
+        "**.vspscc",
+        "PackageRoot"
+    ]
+}
