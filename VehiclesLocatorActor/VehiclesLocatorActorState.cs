@@ -14,10 +14,16 @@ namespace VehiclesLocatorActor
     [DataContract]
     public class VehiclesLocatorActorState
     {
-        [DataMember]
-        public string ZipCode;
+        public VehiclesLocatorActorState()
+        {
+            this.VehicleIdsList = new List<int>();
+        }
 
         [DataMember]
-        public List<int> VehiclesList { get; set; }
+        public List<int> VehicleIdsList { get; set; }
+
+        [DataMember]
+        public string ZipCode;
+        
     }
 }

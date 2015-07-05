@@ -1,0 +1,72 @@
+
+HelloMvc project: C:\GitHubRepos\HelloMVC\HelloMvc
+-------
+
+dnvm upgrade
+dnvm list
+
+//INSTALL specific version
+dnvm install 1.0.0-beta4 -arch x64 -r clr
+
+
+Check the location/s of DNVM:
+where dnvm
+
+dnvm upgrade -u  ||  -unstable 
+
+WINDOWS
+CoreCLR 
+dnvm upgrade -r CoreCLR
+
+.NET CLR
+dnvm upgrade -r CLR
+
+
+//Install Latest CoreCLR
+
+dnvm install latest -r coreclr -u
+
+
+//Change to Latest CoreCLR
+
+dnvm use 1.0.0-beta5-11744 -r coreclr
+
+//Restore NuGet Packages
+dnu restore
+
+//Run the Web
+dnx . web
+
+//Other Versions
+dnvm use 1.0.0-beta4 -r coreclr
+dnvm use 1.0.0-beta4 -r clr
+
+//****************************************
+
+MAC
+//Install baseline coming with Mono
+
+//Install Latest CoreCLR
+
+dnvm install latest -r coreclr -u
+
+
+
+//Change to MONO to restore NuGet packages
+
+dnvm use 1.0.0-beta5-11744 -r mono
+
+dnu restore
+
+
+
+//Change to CoreCLR
+
+dnvm use 1.0.0-beta5-11744 -r coreclr
+
+
+
+//Run the Web app
+
+dnx . kestrel
+

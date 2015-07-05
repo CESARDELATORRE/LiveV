@@ -22,18 +22,32 @@ namespace VehiclesLocatorActor
             return Task.FromResult(true);
         }
 
-        //public Task<int> GetCountAsync()
-        //{
-        //    ActorEventSource.Current.ActorMessage(this, "Getting current count value as {0}", this.State.Count);
-        //    return Task.FromResult(this.State.Count);
-        //}
+        public Task<List<int>> GetVehicleIdListAsync()
+        {
+            return Task.FromResult(this.State.VehicleIdsList);
 
-        //public Task SetCountAsync(int count)
-        //{
-        //    ActorEventSource.Current.ActorMessage(this, "Setting current count of value to {0}", count);
-        //    this.State.Count = count;
+            // (CDLTLL) Do something else async after returning the response
+            //return this.DoSomethingelseAsync().ContinueWith(t => this.State.VehicleIdsList);
+        }
 
-        //    return Task.FromResult(true);
-        //}
+        public Task AddVehicleToZipAreaAsync(int vehicleId)
+        {
+            this.State.VehicleIdsList.Add(vehicleId);
+            return Task.FromResult(true);
+        }
+
+        public Task RemoveVehicleFromZipAreaAsync(int vehicleId)
+        {
+            for (int i = 0; i < this.State.VehicleIdsList.Count; i++)
+            {
+                if (this.State.VehicleIdsList[i].Equals(vehicleId))
+                {
+                    this.State.VehicleIdsList.RemoveAt(i);
+                    break;
+                }
+            }
+            return Task.FromResult(true);
+        }
+
     }
 }

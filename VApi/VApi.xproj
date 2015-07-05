@@ -6,25 +6,21 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>0854978d-34e7-405d-990d-ccfb4b4b0417</ProjectGuid>
-    <RootNamespace>LiveVSvr</RootNamespace>
+    <ProjectGuid>67145f90-0ffd-4944-bb02-772ea0d04e70</ProjectGuid>
+    <RootNamespace>VApi</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">..\artifacts\obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">..\artifacts\bin\$(MSBuildProjectName)\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <AssemblyName>LiveVSvr</AssemblyName>
   </PropertyGroup>
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
     <UpdateServiceFabricManifestEnabled>true</UpdateServiceFabricManifestEnabled>
     <ServiceFabricServiceManifestPath>PackageRoot\ServiceManifest.xml</ServiceFabricServiceManifestPath>
-    <DevelopmentServerPort>9543</DevelopmentServerPort>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <ProduceOutputsOnBuild>True</ProduceOutputsOnBuild>
+    <DevelopmentServerPort>14127</DevelopmentServerPort>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LiveV.CommonTypes\LiveV.CommonTypes.csproj" />
     <ProjectReference Include="..\LiveVehicleActor.Interfaces\LiveVehicleActor.Interfaces.csproj" />
+    <ProjectReference Include="..\VehiclesLocatorActor.Interfaces\VehiclesLocatorActor.Interfaces.csproj" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>

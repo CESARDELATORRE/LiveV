@@ -18,6 +18,8 @@ namespace LiveV.CommonTypes
         [DataMember]
         public GPSCoordinates GPSCoordinates { get; set; }
         [DataMember]
+        public string CurrentZipCode { get; set; }
+        [DataMember]
         public string VehicleMake { get; set; }
         [DataMember]
         public string VehicleModel { get; set; }

@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ApplicationTypeName="LiveVType" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="LiveVSvr" ServiceManifestVersion="1.0" />
+    <ServiceManifestRef ServiceManifestName="VApi" ServiceManifestVersion="1.0" />
   </ServiceManifestImport>
   <DefaultServices>
-    <Service Name="LiveVSvrService">
-      <StatelessService ServiceTypeName="LiveVSvrType">
+    <Service Name="VApiService">
+      <StatelessService ServiceTypeName="VApiType">
         <SingletonPartition />
       </StatelessService>
     </Service>

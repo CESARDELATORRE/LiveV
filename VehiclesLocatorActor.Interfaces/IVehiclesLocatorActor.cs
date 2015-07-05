@@ -9,8 +9,12 @@ namespace VehiclesLocatorActor.Interfaces
 {
     public interface IVehiclesLocatorActor : IActor
     {
-        //Task<int> GetCountAsync();
 
-        //Task SetCountAsync(int count);
+        Task<List<int>> GetVehicleIdListAsync();
+
+        Task AddVehicleToZipAreaAsync(int vehicleId);
+
+        Task RemoveVehicleFromZipAreaAsync(int vehicleId);
+        
     }
 }
