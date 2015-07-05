@@ -4,7 +4,7 @@ using System.Fabric;
 using System.Threading;
 using Microsoft.ServiceFabric.Actors;
 
-namespace LiveVStateful
+namespace VehiclesLocatorActor
 {
     public class Program
     {
@@ -14,7 +14,7 @@ namespace LiveVStateful
             {
                 using (FabricRuntime fabricRuntime = FabricRuntime.Create())
                 {
-                    fabricRuntime.RegisterActor(typeof(LiveVStateful));
+                    fabricRuntime.RegisterActor(typeof(VehiclesLocatorActor));
 
                     Thread.Sleep(Timeout.Infinite);
                 }

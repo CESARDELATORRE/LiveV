@@ -5,13 +5,21 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Actors;
 
+using LiveV.CommonTypes;
+
 namespace LiveVehicleActor.Interfaces
 {
     public interface ILiveVehicleActor : IActor
     {
-        [Readonly]
-        Task<int> GetVehicleIdAsync();
+        //[Readonly]
+        //Task<int> GetVehicleIdAsync();
 
-        Task SetVehicleIdAsync(int count);
+        //Task SetVehicleIdAsync(int count);
+
+        [Readonly]
+        Task<LiveVehicle> GetCurrentVehicleLiveDataAsync();
+
+        Task SetVehicleLiveDataAsync(LiveVehicle vehicleData);
+        
     }
 }

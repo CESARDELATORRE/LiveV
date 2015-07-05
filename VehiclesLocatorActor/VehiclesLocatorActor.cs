@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using LiveVStateful.Interfaces;
+using VehiclesLocatorActor.Interfaces;
 using Microsoft.ServiceFabric;
 using Microsoft.ServiceFabric.Actors;
 
-namespace LiveVStateful
+namespace VehiclesLocatorActor
 {
-    public class LiveVStateful : Actor<LiveVStatefulState>, ILiveVStateful
+    public class VehiclesLocatorActor : Actor<VehiclesLocatorActorState>, IVehiclesLocatorActor
     {
         public override Task OnActivateAsync()
         {
             if (this.State == null)
             {
-                this.State = new LiveVStatefulState() { Count = 0 };
+                this.State = new VehiclesLocatorActorState() { Count = 0 };
             }
 
             ActorEventSource.Current.ActorMessage(this, "State initialized to {0}", this.State);

@@ -80,6 +80,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LiveV.CommonTypes\LiveV.CommonTypes.csproj">
+      <Project>{9a6fbafc-117f-4fd3-9348-c177f8f43f5c}</Project>
+      <Name>LiveV.CommonTypes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LiveVehicleActor.Interfaces\LiveVehicleActor.Interfaces.csproj">
       <Project>{C3C64875-368F-4066-A4A8-DCAC0B49E865}</Project>
       <Name>LiveVehicleActor.Interfaces</Name>

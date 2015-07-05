@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LiveVStateful")]
+[assembly: AssemblyTitle("LiveVStatefulApp.Client")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LiveVStateful")]
+[assembly: AssemblyProduct("LiveVStatefulApp.Client")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4c3729c3-afb7-4bc9-97ee-d506b4834f60")]
+[assembly: Guid("fd1ac220-9562-48e2-a4e1-d4d034eec096")]
 
 // Version information for an assembly consists of the following four values:
 //

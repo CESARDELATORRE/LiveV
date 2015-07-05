@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LiveVStateful.Interfaces")]
+[assembly: AssemblyTitle("LiveV.CommonTypes")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LiveVStateful.Interfaces")]
+[assembly: AssemblyProduct("LiveV.CommonTypes")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("0943240f-0a5e-4fa4-8c63-67ffcffced8c")]
+[assembly: Guid("9a6fbafc-117f-4fd3-9348-c177f8f43f5c")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LiveVStateful
+namespace VehiclesLocatorActor
 {
-    [EventSource(Name = "MyCompany-LiveV-LiveVStateful")]
+    [EventSource(Name = "MyCompany-LiveVStatefulApp-VehiclesLocatorActor")]
     internal sealed class ActorEventSource : EventSource
     {
         public static ActorEventSource Current = new ActorEventSource();

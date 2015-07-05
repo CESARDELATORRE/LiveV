@@ -5,21 +5,21 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
-using LiveVStateful.Interfaces;
+using VehiclesLocatorActor.Interfaces;
 using Microsoft.ServiceFabric;
 using Microsoft.ServiceFabric.Actors;
 
-namespace LiveVStateful
+namespace VehiclesLocatorActor
 {
     [DataContract]
-    public class LiveVStatefulState
+    public class VehiclesLocatorActorState
     {
         [DataMember]
         public int Count;
 
         public override string ToString()
         {
-            return string.Format(CultureInfo.InvariantCulture, "LiveVStatefulState[Count = {0}]", Count);
+            return string.Format(CultureInfo.InvariantCulture, "VehiclesLocatorActorState[Count = {0}]", Count);
         }
     }
 }

@@ -5,9 +5,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Actors;
 
-namespace LiveVStateful.Interfaces
+namespace VehiclesLocatorActor.Interfaces
 {
-    public interface ILiveVStateful : IActor
+    public interface IVehiclesLocatorActor : IActor
     {
         Task<int> GetCountAsync();
 

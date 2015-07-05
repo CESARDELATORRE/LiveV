@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
-   <Section Name="LiveVStatefulActorServiceReplicatorConfig">
-      <Parameter Name="ReplicatorEndpoint" Value="LiveVStatefulActorServiceReplicatorEndpoint" />
+   <Section Name="VehiclesLocatorActorServiceReplicatorConfig">
+      <Parameter Name="ReplicatorEndpoint" Value="VehiclesLocatorActorServiceReplicatorEndpoint" />
    </Section>
-   <Section Name="LiveVStatefulActorServiceReplicatorSecurityConfig">
+   <Section Name="VehiclesLocatorActorServiceReplicatorSecurityConfig">
       <Parameter Name="CredentialType" Value="None" />
    </Section>
-   <Section Name="LiveVStatefulActorServiceLocalStoreConfig">
+   <Section Name="VehiclesLocatorActorServiceLocalStoreConfig">
       <Parameter Name="MaxAsyncCommitDelayInMilliseconds" Value="100" />
       <Parameter Name="MaxVerPages" Value="32768" />
    </Section>
