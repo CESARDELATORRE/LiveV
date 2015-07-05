@@ -15,11 +15,9 @@ namespace VehiclesLocatorActor
     public class VehiclesLocatorActorState
     {
         [DataMember]
-        public int Count;
+        public string ZipCode;
 
-        public override string ToString()
-        {
-            return string.Format(CultureInfo.InvariantCulture, "VehiclesLocatorActorState[Count = {0}]", Count);
-        }
+        [DataMember]
+        public List<int> VehiclesList { get; set; }
     }
 }
