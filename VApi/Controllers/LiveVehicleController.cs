@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 
 using LiveVehicleActor.Interfaces;
+using VehiclesLocatorActor.Interfaces;
 using LiveV.CommonTypes;
 using Microsoft.ServiceFabric.Actors;
 
@@ -44,6 +45,21 @@ namespace VApi.Controllers
 
             //return new string[] { "TEST: ", "TEST 2" };
         }
+
+        //// GET /api/LiveVehicle/zipcode/98101/Vehicles
+        [Route("zipcode/{zipCode}/Vehicles", Name = "GetVehiclesListInZipCodeArea")]
+        public IEnumerable<int> GetVehiclesListInZipCodeArea(string zipCode)
+        {            
+            ActorId vehiclesLocatorQueryActorId = new ActorId(zipCode);
+            var vehiclesLocatorQueryActor = ActorProxy.Create<IVehiclesLocatorActor>(vehiclesLocatorQueryActorId, "fabric:/LiveVStatefulApp");
+            
+            var vehiclesListIds = vehiclesLocatorQueryActor.GetVehicleIdListAsync().Result;
+
+            return vehiclesListIds.AsEnumerable();
+
+            //return new string[] { "Element 1", "Element 2" };
+        }
+
 
         // GET api/LiveVehicle/1
         [HttpGet("{id}")]

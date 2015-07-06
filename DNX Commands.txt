@@ -1,5 +1,7 @@
 
 HelloMvc project: C:\GitHubRepos\HelloMVC\HelloMvc
+http://bitoftech.net/2014/11/18/getting-started-asp-net-5-mvc-6-web-api-entity-framework-7/
+http://www.dotnetcurry.com/aspnet/1061/aspnet5-mvc-webapi-entityframework-application
 -------
 
 dnvm upgrade
