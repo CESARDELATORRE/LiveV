@@ -15,7 +15,7 @@
    <CodePackage Name="C" Version="1.0">
       <EntryPoint>
          <ExeHost>
-            <Program>approot\packages\dnx-clr-win-x86.1.0.0-beta4\bin\dnx.exe</Program>
+            <Program>approot\packages\dnx-clr-win-x64.1.0.0-beta4\bin\dnx.exe</Program>
             <Arguments>--appbase approot\src\vapi Microsoft.Framework.ApplicationHost Microsoft.ServiceFabric.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener</Arguments>
             <WorkingFolder>CodePackage</WorkingFolder>
             <ConsoleRedirection FileRetentionCount="5" FileMaxSizeInKb="2048" />
@@ -24,7 +24,7 @@
    </CodePackage>
    <Resources>
       <Endpoints>
-         <Endpoint Name="VApiTypeEndpoint" Protocol="http" Type="Input" />
+         <Endpoint Name="VApiTypeEndpoint" Protocol="http" Type="Input" Port="8080" />
       </Endpoints>
    </Resources>
 </ServiceManifest>

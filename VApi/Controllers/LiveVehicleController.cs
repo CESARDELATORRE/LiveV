@@ -16,6 +16,35 @@ namespace VApi.Controllers
     [Route("api/[controller]")]
     public class LiveVehicleController : Controller
     {
+
+
+        //// GET /api/LiveVehicle/zipcode/98101/Vehicles
+        [Route("zipcode/{zipCode}/Vehicles", Name = "GetVehiclesListInZipCodeArea")]
+        public IEnumerable<int> GetVehiclesListInZipCodeArea(string zipCode)
+        {
+            ActorId vehiclesLocatorQueryActorId = new ActorId(zipCode);
+            var vehiclesLocatorQueryActor = ActorProxy.Create<IVehiclesLocatorActor>(vehiclesLocatorQueryActorId, "fabric:/LiveVStatefulApp");
+
+            var vehiclesListIds = vehiclesLocatorQueryActor.GetVehicleIdListAsync().Result;
+
+            return vehiclesListIds.AsEnumerable();
+
+            //return new string[] { "Element 1", "Element 2" };
+        }
+
+
+        // GET api/LiveVehicle/1
+        [HttpGet("{id}")]
+        public LiveVehicle Get(int id)
+        {
+            ActorId vehicleActorId = new ActorId(id);
+
+            var vehicleProxy = ActorProxy.Create<ILiveVehicleActor>(vehicleActorId, "fabric:/LiveVStatefulApp");
+
+            LiveVehicle retVehicle = vehicleProxy.GetCurrentVehicleLiveDataAsync().Result;            
+            return retVehicle;           
+        }
+
         // GET: api/LiveVehicle
         [HttpGet]
         public IEnumerable<string> Get()
@@ -46,34 +75,17 @@ namespace VApi.Controllers
             //return new string[] { "TEST: ", "TEST 2" };
         }
 
-        //// GET /api/LiveVehicle/zipcode/98101/Vehicles
-        [Route("zipcode/{zipCode}/Vehicles", Name = "GetVehiclesListInZipCodeArea")]
-        public IEnumerable<int> GetVehiclesListInZipCodeArea(string zipCode)
-        {            
-            ActorId vehiclesLocatorQueryActorId = new ActorId(zipCode);
-            var vehiclesLocatorQueryActor = ActorProxy.Create<IVehiclesLocatorActor>(vehiclesLocatorQueryActorId, "fabric:/LiveVStatefulApp");
-            
-            var vehiclesListIds = vehiclesLocatorQueryActor.GetVehicleIdListAsync().Result;
-
-            return vehiclesListIds.AsEnumerable();
-
-            //return new string[] { "Element 1", "Element 2" };
-        }
-
-
-        // GET api/LiveVehicle/1
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // GET: api/LiveVehicle/1/GPSCoordinates
+        [Route("{id}/GPSCoordinates", Name = "GetVehicleGPSCoordinates")]
+        public GPSCoordinates GetVehicleGPSCoordinates(int id)
         {
-            ActorId actorId = new ActorId(id);
+            LiveVehicle vehicle = this.Get(id);
 
-            var vehicleProxy = ActorProxy.Create<ILiveVehicleActor>(actorId, "fabric:/LiveVStatefulApp");
+            //ActorId vehicleActorId = new ActorId(id);
+            //var vehicleProxy = ActorProxy.Create<ILiveVehicleActor>(vehicleActorId, "fabric:/LiveVStatefulApp");
+            //LiveVehicle vehicle = vehicleProxy.GetCurrentVehicleLiveDataAsync().Result;
 
-            string resultDone = "Actor " + vehicleProxy.GetActorId().ToString() + " is External-VehicleID: " + vehicleProxy.GetCurrentVehicleLiveDataAsync().Result.VehicleId.ToString();
-            return "Vehicle's Data: " + resultDone;
-
-            //return "TEST for ID";
-
+            return vehicle.GPSCoordinates;
         }
 
         // POST api/values
