@@ -7,11 +7,11 @@
       "Microsoft.AspNet.Server.IIS >= 1.0.0-beta4",
       "Microsoft.AspNet.Server.WebListener >= 1.0.0-beta4",
       "Microsoft.AspNet.StaticFiles >= 1.0.0-beta4",
-      "Microsoft.ServiceFabric.AspNet.Hosting >= 1.0.0-beta4",
       "Microsoft.ServiceFabric >= 4.0.1406-preview1",
       "Microsoft.ServiceFabric.Actors >= 1.0.324-preview1",
       "Microsoft.ServiceFabric.Data >= 1.0.324-preview1",
-      "Microsoft.ServiceFabric.Services >= 1.0.324-preview1"
+      "Microsoft.ServiceFabric.Services >= 1.0.324-preview1",
+      "Microsoft.ServiceFabric.AspNet.Hosting >= 1.0.0-beta4"
     ],
     "DNX,Version=v4.5.1": [
       "LiveV.CommonTypes >= 1.0.0-*",

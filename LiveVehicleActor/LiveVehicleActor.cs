@@ -37,6 +37,20 @@ namespace LiveVehicleActor
 
             return Task.FromResult(true);
         }
+        
+        public Task UpdateCoordinatesAsync(GPSCoordinates coordinates)
+        {
+            ActorEventSource.Current.ActorMessage(this, "Updating GPS coordiantes to VehicleId to {0}", this.State.CurrentVehicleLiveData.VehicleId);
+            this.State.CurrentVehicleLiveData.GPSCoordinates = coordinates;
+
+            return Task.FromResult(true);
+        }
+
+        public Task<string> PingAsync()
+        {
+            return Task.FromResult(this.State.CurrentVehicleLiveData.VehicleId == 0 ? String.Format("Vehicle '{0}' looks like has not been initialized .", this.State.CurrentVehicleLiveData.VehicleId)
+                : String.Format("Hello MyShutte! ({0}) - Connected to VehicleActor '{1}' on Cluster Node {2}..", DateTime.Now, this.State.CurrentVehicleLiveData.VehicleId, System.Fabric.FabricRuntime.GetNodeContext().NodeName));
+        }
 
         //public Task<int> GetVehicleIdAsync()
         //{

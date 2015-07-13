@@ -1,12 +1,16 @@
 {
   "profiles": {
     "IIS Express": {
-      "commandName" : "IISExpress",
+      "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/values",
-      "environmentVariables" : {
+      "launchUrl": "/api/LiveVehicle/zipcode/98101/Vehicles",
+      "environmentVariables": {
         "ASPNET_ENV": "Development"
       }
+    },
+    "web": {
+      "commandName": "web",
+      "sdkVersion": "dnx-clr-win-x64.1.0.0-beta4"
     }
   }
 }

@@ -45,6 +45,95 @@ namespace VApi.Controllers
             return retVehicle;           
         }
 
+        // POST api/LiveVehicle
+        [HttpPost]
+        public IActionResult Post([FromBody]LiveVehicle vehicle)
+        {
+            //Add vehicle as new vehicle Actor and add it to the VehicleLocator collection
+            //Check first that it doesn't exist!
+
+            //Here we would find out the ZipCode related to the GPS coordinates provided by the vehicle data.
+            //For now, I set the ZipCode directly
+            vehicle.CurrentZipCode = "98101";
+
+            //Add (if not exists to List of vehicles per ZipCode in VehiclesLocatorActor Service)
+
+            //Create a VehicleLocator proxy to check if the vehicle already exists in our system
+            //I use ZipCode as ID for the VehiclesList locator actor ID service            
+            ActorId vehiclesLocatorActorId = new ActorId(vehicle.CurrentZipCode);
+            var vehicleLocatorProxy = ActorProxy.Create<IVehiclesLocatorActor>(vehiclesLocatorActorId, "fabric:/LiveVStatefulApp");
+
+            bool vehicleExist = false;
+            vehicleExist = vehicleLocatorProxy.IsVehicleInZipCodeAreaAsync(vehicle.VehicleId).Result;
+
+            string detailedResponse;
+
+            if (!vehicleExist)
+            {
+                //Add vehicle to ZipCode Area Actor Manager
+                vehicleLocatorProxy.AddVehicleToZipAreaAsync(vehicle.VehicleId);
+
+                //Create and update the vehicle actor just in case it didn't exist
+                ActorId vehicleActorId = new ActorId(vehicle.VehicleId);
+                var vehicleProxy = ActorProxy.Create<ILiveVehicleActor>(vehicleActorId, "fabric:/LiveVStatefulApp");
+
+                //Add/Update data to Vehicle Actor
+                vehicleProxy.SetVehicleLiveDataAsync(vehicle).Wait();
+
+                detailedResponse = "Vehicle ID " + vehicle.VehicleId.ToString() + "added to ZipCode area " + vehicle.CurrentZipCode;
+            }
+            else
+                detailedResponse = "Vehicle already in ZipCode area. Nothing is added";
+
+            // Get the response.  
+            //(The response could be improved by adding the Partition where the Actor has been created, etc.) 
+            // --> (CDLTLL) --> System.Fabric.FabricRuntime.GetNodeContext().NodeName
+
+            //string message = "Vehicle added to MyShuttle Live IoT system";
+            //String.Format("{0} added to partition {1} at {2}", seatMap.Name, client.ResolvedServicePartition.Info.Id, serviceAddress),
+            //Encoding.UTF8,
+            //"text/html");
+
+            return new HttpStatusCodeResult(201); //201 Created              
+        }
+
+
+        // PUT api/LiveVehicle/3/GPSCoordinates                
+        [HttpPut("{vehicleId}/GPSCoordinates", Name = "UpdateVehicleGPSCoordinates")]
+        //[Route("{vehicleId}/GPSCoordinates", Name = "UpdateVehicleGPSCoordinates")]
+        public IActionResult UpdateVehicleGPSCoordinates(int vehicleId, [FromBody]GPSCoordinates coordinates)
+        {       
+            //Create and update the vehicle actor just in case it didn't exist
+            ActorId vehicleActorId = new ActorId(vehicleId);
+            var vehicleProxy = ActorProxy.Create<ILiveVehicleActor>(vehicleActorId, "fabric:/LiveVStatefulApp");
+
+            //Add/Update data to Vehicle Actor
+            vehicleProxy.UpdateCoordinatesAsync(coordinates).Wait();
+
+            return new HttpStatusCodeResult(200); //200 OK              
+            
+        }
+
+        //[HttpPost]
+        //public async Task<int> Post([FromBody]Vehicle vehicle)
+        //{
+        //    vehicle.CarrierId = await _securityContext.GetCarrierId(User.Identity);
+        //    return await _vehicleRepository.AddAsync(vehicle);
+        //}
+
+        //[HttpPut]
+        //public async Task Put([FromBody]Vehicle vehicle)
+        //{
+        //    vehicle.CarrierId = await _securityContext.GetCarrierId(User.Identity);
+        //    await _vehicleRepository.UpdateAsync(vehicle);
+        //}
+
+        //// PUT api/LiveVehicle/5
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody]string value)
+        //{
+        //}
+
         // GET: api/LiveVehicle
         [HttpGet]
         public IEnumerable<string> Get()
@@ -76,6 +165,7 @@ namespace VApi.Controllers
         }
 
         // GET: api/LiveVehicle/1/GPSCoordinates
+        [HttpGet]
         [Route("{id}/GPSCoordinates", Name = "GetVehicleGPSCoordinates")]
         public GPSCoordinates GetVehicleGPSCoordinates(int id)
         {
@@ -88,22 +178,22 @@ namespace VApi.Controllers
             return vehicle.GPSCoordinates;
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
+        //// POST api/values
+        //[HttpPost]
+        //public void Post([FromBody]string value)
+        //{
+        //}
 
-        // PUT api/LiveVehicle/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+        //// PUT api/LiveVehicle/5
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody]string value)
+        //{
+        //}
 
-        // DELETE api/LiveVehicle/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        //// DELETE api/LiveVehicle/5
+        //[HttpDelete("{id}")]
+        //public void Delete(int id)
+        //{
+        //}
     }
 }

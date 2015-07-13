@@ -36,6 +36,20 @@ namespace VehiclesLocatorActor
             return Task.FromResult(true);
         }
 
+        public Task<bool> IsVehicleInZipCodeAreaAsync(int vehicleId)
+        {
+            bool existsInArea = false;
+            for (int i = 0; i < this.State.VehicleIdsList.Count; i++)
+            {
+                if (this.State.VehicleIdsList[i].Equals(vehicleId))
+                {
+                    existsInArea = true;
+                    break;
+                }
+            }
+            return Task.FromResult(existsInArea);
+        }
+
         public Task RemoveVehicleFromZipAreaAsync(int vehicleId)
         {
             for (int i = 0; i < this.State.VehicleIdsList.Count; i++)

@@ -4,6 +4,9 @@ http://bitoftech.net/2014/11/18/getting-started-asp-net-5-mvc-6-web-api-entity-f
 http://www.dotnetcurry.com/aspnet/1061/aspnet5-mvc-webapi-entityframework-application
 -------
 
+//Use CLR x64
+dnvm use 1.0.0-beta4 -arch x64 -r clr
+
 dnvm upgrade
 dnvm list
 

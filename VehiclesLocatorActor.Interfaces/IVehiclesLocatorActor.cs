@@ -12,6 +12,8 @@ namespace VehiclesLocatorActor.Interfaces
 
         Task<List<int>> GetVehicleIdListAsync();
 
+        Task<bool> IsVehicleInZipCodeAreaAsync(int vehicleId);
+
         Task AddVehicleToZipAreaAsync(int vehicleId);
 
         Task RemoveVehicleFromZipAreaAsync(int vehicleId);

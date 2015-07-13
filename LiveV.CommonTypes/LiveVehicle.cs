@@ -29,6 +29,7 @@ namespace LiveV.CommonTypes
         public string DriverName { get; set; }
         [DataMember]
         public string CarrierName { get; set; }
+
     }
 
     [DataContract]

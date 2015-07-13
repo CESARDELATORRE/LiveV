@@ -20,6 +20,10 @@ namespace LiveVehicleActor.Interfaces
         Task<LiveVehicle> GetCurrentVehicleLiveDataAsync();
 
         Task SetVehicleLiveDataAsync(LiveVehicle vehicleData);
-        
+
+        Task UpdateCoordinatesAsync(GPSCoordinates coordinates);
+
+        Task<string> PingAsync();
+
     }
 }
