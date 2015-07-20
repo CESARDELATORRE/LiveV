@@ -28,6 +28,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 Clients", "04 Clients", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveV.ClientConsoleApp", "LiveV.ClientConsoleApp\LiveV.ClientConsoleApp.csproj", "{09F49C3F-12D4-443A-B807-C37D9457F133}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyShuttle.Device", "MyShuttle.Device\MyShuttle.Device.csproj", "{EAD6E880-5D2E-44A4-87E4-80C5CA348E5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +82,14 @@ Global
 		{09F49C3F-12D4-443A-B807-C37D9457F133}.Release|Any CPU.Build.0 = Release|Any CPU
 		{09F49C3F-12D4-443A-B807-C37D9457F133}.Release|x64.ActiveCfg = Release|Any CPU
 		{09F49C3F-12D4-443A-B807-C37D9457F133}.Release|x64.Build.0 = Release|Any CPU
+		{EAD6E880-5D2E-44A4-87E4-80C5CA348E5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAD6E880-5D2E-44A4-87E4-80C5CA348E5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAD6E880-5D2E-44A4-87E4-80C5CA348E5B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EAD6E880-5D2E-44A4-87E4-80C5CA348E5B}.Debug|x64.Build.0 = Debug|Any CPU
+		{EAD6E880-5D2E-44A4-87E4-80C5CA348E5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAD6E880-5D2E-44A4-87E4-80C5CA348E5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAD6E880-5D2E-44A4-87E4-80C5CA348E5B}.Release|x64.ActiveCfg = Release|Any CPU
+		{EAD6E880-5D2E-44A4-87E4-80C5CA348E5B}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,5 +101,6 @@ Global
 		{42B6A279-1547-4538-828B-251B039E86F8} = {0347264D-41BC-47FF-B860-014865B68B36}
 		{67145F90-0FFD-4944-BB02-772EA0D04E70} = {B398E66F-CC5D-4975-8A29-49936BC71426}
 		{09F49C3F-12D4-443A-B807-C37D9457F133} = {86FB25BC-8205-4B58-9AA3-35B8A0165532}
+		{EAD6E880-5D2E-44A4-87E4-80C5CA348E5B} = {86FB25BC-8205-4B58-9AA3-35B8A0165532}
 	EndGlobalSection
 EndGlobal
